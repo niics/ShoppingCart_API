@@ -8,7 +8,7 @@ import (
 )
 
 // The ENUM that represent the stage of cart
-const ( //
+const (
 	PENDING   = iota // 0
 	PURCHASED = iota // 1
 	CLOSED    = iota // 2
@@ -27,13 +27,6 @@ type Cart struct {
 	Orders []Order
 }
 
-// products slice to seed record product data.
-// uOrder := &userOrder{
-// 	{
-// 		UID: "0",
-// 		Name: "Test Guy1", cart:cart{PID: "0", Quantity: 1}},
-// }
-
 var Carts = []Cart{
 	{
 		UID:    "0",
@@ -43,7 +36,7 @@ var Carts = []Cart{
 }
 
 func order_init() {
-	fmt.Println("Dummy order")
+	fmt.Println("Init order...")
 }
 
 // getProducts responds with the list of all products as JSON.
@@ -52,12 +45,12 @@ func getOrdersJSON(c *gin.Context) {
 }
 
 // getOrderByUID locates the album whose UID value matches the user id
-// parameter sent by the client, then returns that product as a response.
+// parameter sent by the client, then returns that order as a response.
 func getOrderByUID(c *gin.Context) {
 	uid := c.Param("uid")
 
-	// Loop through the list of products, looking for
-	// a cart whose user ID value matches the parameter.
+	// Loop through the list of orders, looking for
+	// a cart whose user UID value matches the parameter.
 	for _, a := range Carts {
 		if a.UID == uid {
 			c.IndentedJSON(http.StatusOK, a)

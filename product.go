@@ -22,7 +22,7 @@ var products = []product{
 }
 
 func product_init() {
-	fmt.Println("Dummy product")
+	fmt.Println("Init product...")
 }
 
 // getProducts responds with the list of all products as JSON.
